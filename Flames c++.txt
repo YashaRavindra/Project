@@ -1,0 +1,71 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+int main()
+{
+char name1[30],name2[30];
+char flames1[]={'F','L','A','M','E','S','\0'};
+int count=0,cancel=0,matched=0,flames=6;
+int len1,len2;
+int i,j;
+char total_count;
+cout<<"Enter the first name : ";
+cin>>name1;
+cout<<"Enter the second name : ";
+cin>>name2;
+for(i=0;i<strlen(name1);i++)
+  {
+    for(j=0;j<strlen(name2);j++)
+    {
+      if((int)name1[i]==(int)name2[j])
+      {
+        name2[j]='0';
+      cancel+=2;
+      break;
+        
+      }
+    
+  }
+    
+  }
+unmatched=(strlen(name1)+strlen(name2))-cancel;
+cout<<"No. of characters unmatched: "<<unmatched<<endl;
+do
+  {
+    i=0;
+   do
+    {
+      if(flames1[i]!='0')
+      {
+        count++;
+      if(count%unmatched==0)
+        {
+          count=0;
+          flames1[i]='0';
+        flames--;
+        }
+      }
+      i++;
+    }while(i<strlen(flames1));
+  }while(flames>1);
+  
+for(i=0;i<strlen(flames1);i++)
+{
+  if(flames1[i]!='0')
+  {
+    total_count=flames1[i];
+
+  }
+}
+switch(total_count)
+  {
+    case 'F':cout<<"Friends";break;
+  case 'L':cout<<"Lovers";break;
+  case 'A':cout<<"Affection";break;
+  case 'M':cout<<"Marriage";break;
+  case 'E':cout<<"Enemies";break;
+  case 'S':cout<<"Siblings";break;
+  }
+
+return 0;
+}
