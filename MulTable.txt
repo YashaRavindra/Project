@@ -1,0 +1,71 @@
+<html>
+<head>
+<style>
+.body {
+background: blue;
+font-family:Times New Roman;
+margin: 0;
+}
+#mulm{
+  border:1px solid red;
+}
+</style>
+</head>
+<body>
+  
+<table border="0" style="margin: 0 auto; width:500px">
+    <tr>
+        <td colspan="2"><h2>Multiplication Table using JavaScript</h2></td>
+    </tr>
+ 
+    <tr>
+        <td width="28%">Enter a Number : </td>
+        <td><input type="number" oninput="printTable(this)"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><span id="mulm"></span></td>
+    </tr>
+</table>
+
+<div id ="mul"> 
+
+</div>
+ 
+<script>
+function printTable(num) 
+{
+    var input = num.value;
+    if(!isNaN(input)) 
+    {var str="";
+        var table="";
+        var number="";
+        for(i=1;i<=input;i++)
+        {str+="<table>";
+          str += "<th>Number</th>";
+         str+= "<th>Result</th>";
+        
+        for(j=1;j<=10;j++)
+          {str += "<tr>";
+        str += "<td>"+ (j) + " * " + (i) + " = </td>";
+        str += "<td>"+ (j) * (i) </td>";
+        str += "</tr>";
+      
+            value = i * j;
+            table +=  i + " * " + j + " = " + value + "<br/>";
+            
+        }
+        str+="</table>";
+        }
+        
+        document.getElementById("mulm").innerHTML = str;
+        
+    }
+    else {
+        document.getElementById("mulm").innerHTML = "Please Enter a valid Number";
+    }
+}
+</script>
+  
+</body>
+</html>       
+
